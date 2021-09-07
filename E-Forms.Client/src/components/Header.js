@@ -5,7 +5,6 @@ import './Header.css';
 export const Header = () => {
 
     const headerStyle = {
-
         width: '100%',
         padding: '2%',
         backgroundColor: "yellowgreen",
@@ -19,3 +18,5 @@ export const Header = () => {
         </div>
     )
 }
+
+export default Header;
