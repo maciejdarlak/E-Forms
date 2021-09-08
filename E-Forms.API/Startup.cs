@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+
+
 
 namespace E_Forms.API
 {
@@ -53,6 +56,17 @@ namespace E_Forms.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            // a path to frontend
+                app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "Client";
+
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
             });
         }
     }
