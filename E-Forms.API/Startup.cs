@@ -35,6 +35,10 @@ namespace E_Forms.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "E_Forms.API", Version = "v1" });
             });
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "E-Forms.Client/build";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +65,7 @@ namespace E_Forms.API
             // a path to frontend
                 app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "Client";
+                spa.Options.SourcePath = "E-Forms.Client";
 
                 if (env.IsDevelopment())
                 {

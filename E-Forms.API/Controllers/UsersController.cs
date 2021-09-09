@@ -14,7 +14,7 @@ namespace E_Forms.API.Controllers
     public class UsersController : ControllerBase // ControllerBase : A base class for an MVC controller without view support
     {
         private readonly ILogger<UsersController> _logger; // ILogger - error recorder
-        static readonly UserRepository repository = new Models.UserRepository();
+        static readonly IUserRepository repository = new UserRepository(); // Model object - its values can be used from now
 
         public UsersController(ILogger<UsersController> logger)
         {
@@ -30,7 +30,7 @@ namespace E_Forms.API.Controllers
 
         [HttpPost]
         [Route("api/user")]
-        [Consumes("application/json")]
+        [Consumes("application/json")] // Consumes - it's saying to the framework to use JSON as input format
         public UserModel PostUser(UserModel item)
         {
             return repository.Add(item);
