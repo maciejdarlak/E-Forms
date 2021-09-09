@@ -8,6 +8,7 @@ namespace E_Forms.API.Models
 {
     public interface IUserRepository
     {
-        UserModel Add(UserModel userModel);
+        IEnumerable<UserModel> GetAll();
+        UserModel Add(UserModel userModel);     
     }
 }
