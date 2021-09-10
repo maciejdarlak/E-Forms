@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const mainRoad = 'https://localhost:44361/api/users'
+const mainRoad = 'https://localhost:44361/api'
 
 export const getAllUsers = async() => {
     const response = await axios.get('${mainRoad}/users');
