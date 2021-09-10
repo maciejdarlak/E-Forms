@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
 import { getAllUsers, createUser } from './services/UserService';
@@ -15,6 +16,7 @@ state = {
   numberOfUsers: 0
 }
 
+
 getAllUsers = () => {
   getAllUsers()
     .then(users => {
@@ -22,6 +24,7 @@ getAllUsers = () => {
       this.setState({ users: users, numberOfUsers: users.length })
     });
 }
+
 // assign entered values to the fields
 onChangeForm = (e) => {
   let user = this.state.user
