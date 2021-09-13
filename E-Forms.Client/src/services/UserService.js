@@ -1,18 +1,18 @@
 import axios from 'axios';
 
 
-const mainRoad = 'https://localhost:44361/api'
+//const mainRoad = 'https://localhost:44361/api'
+
 
 export const getAllUsers = async() => {
-    const response = await axios.get('${mainRoad}/users');
+    const response = await axios.get('https://localhost:44361/api/users');
     return await response.json();
 }
 
 export const createUser = async(data) => {
-    const response = await axios.post('${mainRoad}/user', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
+    const response = await axios.post('https://localhost:44361/api/user', {
+        firstname: '', 
+        lastname: ''
     })
     return await response.json();
 }
