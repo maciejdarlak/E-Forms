@@ -31,8 +31,13 @@ namespace E_Forms.API
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllOrigins",
-                    builder => builder.AllowAnyOrigin());
+                options.AddDefaultPolicy(
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000", 
+                                        "https://localhost:44361"
+                                      );
+                });
             });
 
             services.AddControllers();
