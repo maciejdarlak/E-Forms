@@ -19,7 +19,7 @@ getAllUsers = () => {
   getAllUsers()
     .then(users => {
       console.log(users);
-      this.setState({ users: users, numberOfUsers: users.length })
+      this.setState({users: users, numberOfUsers: users.length})
     });
 }
 

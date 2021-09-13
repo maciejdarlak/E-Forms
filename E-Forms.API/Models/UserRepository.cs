@@ -15,8 +15,8 @@ namespace E_Forms.API.Models
         public UserRepository()
         {
             Add(new UserModel { firstName = "Maciek", lastName = "Darłak" });
-            Add(new UserModel { firstName = "Jan", lastName = "Nowak" });
             Add(new UserModel { firstName = "Ala", lastName = "Darłak" });
+            Add(new UserModel { firstName = "Pati", lastName = "Darłak" });
         }
 
         public IEnumerable<UserModel> GetAll()
