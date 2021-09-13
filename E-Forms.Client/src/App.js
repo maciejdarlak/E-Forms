@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
 import { getAllUsers, createUser } from './services/UserService';
@@ -15,7 +14,6 @@ state = {
   users: [],
   numberOfUsers: 0
 }
-
 
 getAllUsers = () => {
   getAllUsers()
