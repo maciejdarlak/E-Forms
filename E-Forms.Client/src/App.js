@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.css';
 import { getAllUsers, createUser } from './services/UserService';
@@ -7,60 +7,58 @@ import CreateUser from './components/CreateUser';
 import { DisplayBoard } from './components/DisplayBoard';
 
 
-class App extends Component {
+const App =(props) => {
 
-state = {
-  user: {},
-  users: [],
-  numberOfUsers: 0
-}
+const [user, setUser] = useState('');  
+const [users, setUsers] = useState('');
+const [numberOfUsers, setNumberOfUsers] = useState(0);
 
-getAllUsers = () => {
+
+const getAllUsers1 = () => {
   getAllUsers()
     .then(users => {
       console.log(users);
-      this.setState({users: users, numberOfUsers: users.length})
+      setUsers(users)
+      setNumberOfUsers(users.data.length)
     });
 }
 
 // assign entered values to the fields
-onChangeForm = (e) => {
-  let user = this.state.user
-  if (e.target.name === 'firstname') {
+var onChangeForm = (e) => {
+  if (e.target.name == 'firstname') {
       user.firstName = e.target.value;
+      setUser(user);
   } else if (e.target.name === 'lastname') {
       user.lastName = e.target.value;
+      setUser(user);
   } 
-  this.setState({user})
 }
 
-createUser = (e) => {
-  createUser(this.state.user)
+const createUser1 = (e) => {
+  createUser(user)
     .then(response => {
       console.log(response);
-      this.setState({numberOfUsers: this.state.numberOfUsers + 1})
+      setNumberOfUsers(numberOfUsers + 1)
   });
 } 
 
 
-  render() {
-    
     return (
-      <div className="App">
+      <div >
         <Header></Header>
         <div className="container mrgnbtm">
           <div className="row">
             <div className="col-md-8">
               <CreateUser
-                onChangeForm={this.onChangeForm}
-                createUser={this.createUser}
+                onChangeForm={onChangeForm}
+                createUser={createUser1}
                 >
               </CreateUser>
             </div>
             <div className="col-md-8">
               <DisplayBoard
-                getAllUsers={this.getAllUsers}
-                numberOfUsers={this.numberOfUsers}
+                numberOfUsers={numberOfUsers}
+                getAllUsers={getAllUsers1}
               >                 
               </DisplayBoard>
             </div>
@@ -69,6 +67,6 @@ createUser = (e) => {
       </div>
     );
   }
-}
+
 
 export default App;
