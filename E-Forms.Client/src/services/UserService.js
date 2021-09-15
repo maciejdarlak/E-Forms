@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-export const getAllUsers = async() => {
+export const getAllUsers = async(data) => {
     const response = await axios.get('https://localhost:5001/api/users');
     return await response;
 }
@@ -13,4 +13,3 @@ export const createUser = async(data) => {
     })
     return await response;
 }
-

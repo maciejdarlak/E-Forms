@@ -34,8 +34,8 @@ namespace E_Forms.API
                 options.AddDefaultPolicy(
                 builder =>
                 {
-                    builder.WithOrigins("http://localhost:3000", 
-                                        "https://localhost:44361"
+                    builder.WithOrigins("https://localhost:44361", 
+                                        "http://localhost:3000"                                 
                                       );
                 });
             });

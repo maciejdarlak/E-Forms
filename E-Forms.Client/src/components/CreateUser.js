@@ -6,12 +6,12 @@ const CreateUser = ({ onChangeForm, createUser }) => {
     return(
         <div className='container'> {/* alignment */}
             <div className='row'>
-                <div className="col-md-7 mrgnbtm">
+                <div className='col-md-7 mrgnbtm'>
                     <h2>Create User</h2>
                     <form>
                         <div class='mt-4 col-md-12'> {/* mt-... - spaces between rows */}   
                             <div className='row'>
-                                <div className="form-group col-md-6">
+                                <div className='form-group col-md-6'>
                                     <label htmlFor='exampleInputEmail1'>First Name</label>
                                     <input type='text' onChange={(e) => onChangeForm(e)} className='form-control' name="firstname" id='firstname' aria-describedby='emailHelp' placeholder='First Name' />
                                 </div>                                         
