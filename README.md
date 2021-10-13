@@ -1,3 +1,3 @@
 # E-Forms
-.Net 5 &amp; React
-![alt text](https://github.com/maciejdarlak/E-Forms/blob/master/E-Forms.Client/MainPage.pdf)
+ASP.NET Core 5.0 (Entity Framework Core) & React (Redux)
+![alt text](https://github.com/maciejdarlak/E-Forms/blob/master/E-Forms.Client/MainPage.jpg)
