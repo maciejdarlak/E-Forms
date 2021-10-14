@@ -1,5 +1,5 @@
 import types  from './types'
-import { getAllUsers } from './operations'
+import { getAllUsersFromAPI } from './operations'
 
 
 const add = item => ({
@@ -11,14 +11,15 @@ const clearUsers = () => ({
     type: types.CLEAR_USERS
 }) 
 
-export const getAllUsers2 =  () => {
+export const getAllUsers =  () => {
     return(dispatch) => {
-        getAllUsers().then(fetchData => {
-            fetchData.map(user => { 
-                var firstname = user.firstname 
-                var lastname = user.lastname   
-                var item = { firstname, lastname }      
-                dispatch(add(item))
+        getAllUsersFromAPI() // getAllUsersFromAPI - getting data from API
+        .then(fetchData => { 
+            fetchData.map(user => { // fetchdata - it is just a variable
+                const firstname = user.firstname 
+                const lastname = user.lastname   
+                const item = { firstname, lastname } // two parameters to one JS object    
+                dispatch(add(item)) // added item to the store --> action method (add) --> dispatch
             })
         })
     }

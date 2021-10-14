@@ -1,11 +1,13 @@
 import React, { useEffect }  from 'react'
 import { connect } from 'react-redux'
-import { getAllUsers2 } from './../duck/actions'
+import { getAllUsers } from './../duck/actions'
 
 
-const UsersContainer = ({ users, getAllUsers }) => {
+// How to get API to front: getAllUsersResult --> getAllUsers --> getAllUsersFromAPI --> getAllUsers --> getAllUsersResult
 
-    useEffect(() => { getAllUsers() }, [])
+const UsersContainer = ({ users, getAllUsersResult }) => {
+
+    useEffect(() => { getAllUsersResult() }, [])
 
     return(  
         <div className='container'>       
@@ -13,96 +15,20 @@ const UsersContainer = ({ users, getAllUsers }) => {
                     Number of users is { users.length }   
                 </div>   
                 <div className='mt-4 col-md-12'>         
-                    <button type='button' onClick={(e) => getAllUsers()} className='btn btn-warning'>Get all users</button>
+                    <button type='button' onClick={(e) => getAllUsersResult()} className='btn btn-warning'>Get all users</button>
                 </div>
         </div>
     )
 }
 
+// mapStateToProps - added the state
 const mapStateToProps = state => ({
     users: state.users
 })
 
+// mapDispatchToProps -, added the action methods
 const mapDispatchToProps = dispatch => ({
-    getAllUsers: () => dispatch(getAllUsers2())
+    getAllUsersResult: () => dispatch(getAllUsers()) // assignment of an action method - the goal is getting dispatch method
 })
 
 export default connect(mapStateToProps, mapDispatchToProps) (UsersContainer);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const [user, setUser] = useState('');  
-// const [users, setUsers] = useState('');
-// const [numberOfUsers, setNumberOfUsers] = useState(0);
-
-// const getAllUsers1 = () => {
-//   getAllUsers(users)
-//     .then(response => {
-//       console.log(response);
-//       setUsers(response);
-//       setNumberOfUsers(response.data.length);
-//     });
-// }
-
-// // assign entered values to the fields
-// const onChangeForm = (e) => {
-//   if (e.target.name == 'firstname') {
-//       user.firstName = e.target.value;
-//       setUser(user);
-//   } else if (e.target.name == 'lastname') {
-//       user.lastName = e.target.value;
-//       setUser(user);
-//   } 
-// }
-
-// const createUser1 = (e) => {
-//   createUser(user)
-//     .then(response => {
-//       console.log(response);
-//       setNumberOfUsers(numberOfUsers + 1);
-//   });
-// } 
-
-//   return (
-//     <div >
-//       <Header></Header>
-//       <div className="container mrgnbtm">
-//         <div className="row">
-//           <div className="col-md-8">
-//             <CreateUser
-//               onChangeForm={onChangeForm}
-//               createUser={createUser1}
-//               >
-//             </CreateUser>
-//           </div>
-//           <div className="col-md-8">
-//             <DisplayBoard
-//               numberOfUsers={numberOfUsers}
-//               getAllUsers={getAllUsers1}
-//             >                 
-//             </DisplayBoard>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
