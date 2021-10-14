@@ -1,16 +1,12 @@
 import types from './types'
 
 
-const userReducer = (action) => { 
+const userReducer = (state = [], action) => { 
     switch(action.type) {
-        case types.ADD_USER: 
-            return {
-                ...state, list: [...state.list, (action.firstname, action.lastname)] 
-            }
+        case types.ADD_USER:     
+            return state = [...state, action.item]   
         case types.CLEAR_USERS:
-            return {
-                ...state, list: []
-            }
+            return state = []
         default:
             return state
     }

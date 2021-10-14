@@ -5,7 +5,7 @@ import UsersContainer from './app/users/components/UsersContainer'
 
 const App =() => {
   return(
-    <div clasName='App'>
+    <div className='App'>
       <UsersContainer />
     </div>
   );

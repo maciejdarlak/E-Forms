@@ -1,14 +1,16 @@
 import React, { useEffect }  from 'react'
 import { connect } from 'react-redux'
-import { getAllUsers } from './duck/operations'
+import { getAllUsers2 } from './../duck/actions'
 
 
-const UserContainer = ({ numberOfUsers, getAllUsers }) => {
-    useEffect(() => { getAllUsers }, [])
+const UsersContainer = ({ users, getAllUsers }) => {
+
+    useEffect(() => { getAllUsers() }, [])
+
     return(  
-        <div className='container'> {/* alignment */}        
+        <div className='container'>       
                 <div className='mt-4 col-md-12'>
-                    Number of users is  {numberOfUsers}   
+                    Number of users is { users.length }   
                 </div>   
                 <div className='mt-4 col-md-12'>         
                     <button type='button' onClick={(e) => getAllUsers()} className='btn btn-warning'>Get all users</button>
@@ -22,11 +24,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getAllUsers: () => dispatch(getAllUsers())
+    getAllUsers: () => dispatch(getAllUsers2())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps) (UserContainer);
-
+export default connect(mapStateToProps, mapDispatchToProps) (UsersContainer);
 
 
 

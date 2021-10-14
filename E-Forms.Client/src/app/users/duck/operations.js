@@ -1,12 +1,20 @@
-import axios from 'axios';
-import actions from './duck/actions'
+import axios from 'axios'
+import actions from './actions'
 
 
 // API operations folder
 
-export const getAllUsers = async(dispatch) => {
-    const users = await axios.get('https://localhost:5001/api/users')
-    users.map(user => dispatch(actions.add(user.firstname, user.lastname)))
+// getting all users from db
+export const getAllUsers = async() => {
+        const users = await axios.get('https://localhost:5001/api/users')
+        return users.data
+
+        // console.log(users)
+        // users.data.map(user => { 
+        //     var firstname = user.firstname 
+        //     var lastname = user.lastname   
+        //     var item = { firstname, lastname }      
+        //     dispatch(actions.add(item))
 }
 
 
