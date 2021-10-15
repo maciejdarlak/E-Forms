@@ -3,7 +3,17 @@ import { connect } from 'react-redux'
 import { getAllUsersFromAPI } from '../duck/operations'
 
 
-const UsersContainer = ({ users, getAllUsers }) => {
+// mapStateToProps - added the state
+const mapStateToProps = state => ({
+    users: state.users
+})
+
+// mapDispatchToProps -, added the action methods
+const mapDispatchToProps = dispatch => ({
+    getAllUsers: () => dispatch(getAllUsersFromAPI()) 
+})
+
+const UsersContainer = ({ users, getAllUsers }) => { // the parameters are the results of the mapStateToProps and mapDispatchToProps functions
 
     useEffect(() => { getAllUsers() }, [])
 
@@ -18,15 +28,5 @@ const UsersContainer = ({ users, getAllUsers }) => {
         </div>
     )
 }
-
-// mapStateToProps - added the state
-const mapStateToProps = state => ({
-    users: state.users
-})
-
-// mapDispatchToProps -, added the action methods
-const mapDispatchToProps = dispatch => ({
-    getAllUsers: () => dispatch(getAllUsersFromAPI()) 
-})
 
 export default connect(mapStateToProps, mapDispatchToProps) (UsersContainer);
