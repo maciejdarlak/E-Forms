@@ -1,13 +1,11 @@
 import React, { useEffect }  from 'react'
 import { connect } from 'react-redux'
-import { getAllUsers } from './../duck/actions'
+import { getAllUsersFromAPI } from '../duck/operations'
 
 
-// How to get API to front: getAllUsersResult --> getAllUsers --> getAllUsersFromAPI --> getAllUsers --> getAllUsersResult
+const UsersContainer = ({ users, getAllUsers }) => {
 
-const UsersContainer = ({ users, getAllUsersResult }) => {
-
-    useEffect(() => { getAllUsersResult() }, [])
+    useEffect(() => { getAllUsers() }, [])
 
     return(  
         <div className='container'>       
@@ -15,7 +13,7 @@ const UsersContainer = ({ users, getAllUsersResult }) => {
                     Number of users is { users.length }   
                 </div>   
                 <div className='mt-4 col-md-12'>         
-                    <button type='button' onClick={(e) => getAllUsersResult()} className='btn btn-warning'>Get all users</button>
+                    <button type='button' onClick={(e) => getAllUsers()} className='btn btn-warning'>Get all users</button>
                 </div>
         </div>
     )
@@ -28,7 +26,7 @@ const mapStateToProps = state => ({
 
 // mapDispatchToProps -, added the action methods
 const mapDispatchToProps = dispatch => ({
-    getAllUsersResult: () => dispatch(getAllUsers()) // assignment of an action method - the goal is getting dispatch method
+    getAllUsers: () => dispatch(getAllUsersFromAPI()) 
 })
 
 export default connect(mapStateToProps, mapDispatchToProps) (UsersContainer);

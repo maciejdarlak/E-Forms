@@ -1,10 +1,11 @@
 import axios from 'axios'
+import actions from './actions'
 
 
 // API operations folder
 
-// getting all users from db
-export const getAllUsersFromAPI = async() => {
-        const users = await axios.get('https://localhost:5001/api/users')
-        return users.data
+export const getAllUsersFromAPI = () => 
+        async(dispatch) => {
+                const users = await axios.get('https://localhost:5001/api/users')
+                users.data.map(user => dispatch(actions.add(user.item)))
 }
