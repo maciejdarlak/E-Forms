@@ -1,8 +1,8 @@
 import React from 'react';
-import './Header.css';
+import './HeaderContainer.css';
 
 
-export const Header = () => {
+export const HeaderContainer = () => {
 
     const headerStyle = {
         width: '100%',
@@ -13,10 +13,10 @@ export const Header = () => {
     }
 
     return (
-        <div style = {headerStyle}>
+        <div style = { headerStyle }>
             <h1>.Net 5 and React Forms App</h1>
         </div>
     )
 }
 
-export default Header;
+export default HeaderContainer;
