@@ -12,7 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
-
+using E_Forms.Database.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace E_Forms.API
@@ -48,6 +49,10 @@ namespace E_Forms.API
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "E-Forms.Client/build";
+            });
+            services.AddDbContext<UserDbContext>(o =>
+            {
+                o.UseSqlServer(_configuartion["connectionStrings:UserDbConnectionString"]);
             });
         }
 
