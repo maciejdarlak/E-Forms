@@ -13,7 +13,7 @@ const CreateUser = ({ onChangeForm, createUser }) => {
                             <div className='row'>
                                 <div className='form-group col-md-6'>
                                     <label htmlFor='exampleInputEmail1'>First Name</label>
-                                    <input type='text' onChange={(e) => onChangeForm(e)} className='form-control' name="firstname" id='firstname' aria-describedby='emailHelp' placeholder='First Name' />
+                                    <input type='text' onChange={(e) => onChangeForm(e)} className='form-control' name="firstName" id='firstName' aria-describedby='emailHelp' placeholder='First Name' />
                                 </div>                                         
                             </div>
                         </div>
@@ -21,7 +21,7 @@ const CreateUser = ({ onChangeForm, createUser }) => {
                             <div className='row'>
                                 <div className='form-group col-md-6'>
                                     <label htmlFor='exampleInputPassword1'>Last Name</label>
-                                    <input type='text' onChange={(e) => onChangeForm(e)} className='form-control' name="lastname" id='lastname' placeholder='Last Name' />  
+                                    <input type='text' onChange={(e) => onChangeForm(e)} className='form-control' name="lastName" id='lastName' placeholder='Last Name' />  
                                 </div>
                             </div>
                         </div>   
