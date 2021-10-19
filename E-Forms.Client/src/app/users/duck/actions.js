@@ -1,9 +1,9 @@
 import types from './types'
 
 
-var firstname
-var lastname
-var item = { firstname, lastname }
+var firstName
+var lastName
+var item = { firstName, lastName }
 
 const add = (item) => ({
     type: types.ADD_USER,
