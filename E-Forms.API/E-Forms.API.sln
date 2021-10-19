@@ -3,9 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Forms.API", "E-Forms.API.csproj", "{86FB6736-D320-41EB-8555-4D429D57067D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Forms.API", "E-Forms.API.csproj", "{86FB6736-D320-41EB-8555-4D429D57067D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F876AE99-A9A0-4522-9DFA-33D541AB8E42} = {F876AE99-A9A0-4522-9DFA-33D541AB8E42}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Forms.DataBase", "..\E-Forms.DataBase\E-Forms.DataBase.csproj", "{F876AE99-A9A0-4522-9DFA-33D541AB8E42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Forms.DataBase", "..\E-Forms.DataBase\E-Forms.DataBase.csproj", "{F876AE99-A9A0-4522-9DFA-33D541AB8E42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
