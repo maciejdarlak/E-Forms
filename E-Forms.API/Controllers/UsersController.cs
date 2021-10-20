@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using E_Forms.API.Models;
 using System.Net.Http;
 using Microsoft.Extensions.Logging;
+using E_Forms.DataBase.Contexts;
 
 
 namespace E_Forms.API.Controllers
@@ -13,12 +14,12 @@ namespace E_Forms.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase // ControllerBase : A base class for an MVC controller without view support
     {
-        private readonly ILogger<UsersController> _logger; // ILogger - error recorder
+        private UserDbContext _userDbContext;
         static readonly IUserRepository repository = new UserRepository(); // Model object - its values can be used from now
 
-        public UsersController(ILogger<UsersController> logger)
+        public UsersController(UserDbContext userDbContext)
         {
-            _logger = logger;
+            _userDbContext = userDbContext;
         }
 
         [HttpGet]
