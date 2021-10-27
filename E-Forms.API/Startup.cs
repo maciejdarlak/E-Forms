@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using E_Forms.DataBase.Contexts;
 using Microsoft.EntityFrameworkCore;
-using DB2;
+
 
 namespace E_Forms.API
 {
@@ -42,17 +42,20 @@ namespace E_Forms.API
             });
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "E_Forms.API", Version = "v1" });
             });
+
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "E-Forms.Client/build";
             });
+      
             services.AddDbContext<UserDbContext>(o =>
             {
-                o.UseSqlServer(Configuration["connectionStrings:UserDbConnectionString"]);
+                o.UseSqlServer("UserDbConnectionString");
             });
         }
 
