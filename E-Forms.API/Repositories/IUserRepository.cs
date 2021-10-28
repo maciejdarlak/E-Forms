@@ -1,10 +1,11 @@
-﻿using System;
+﻿using E_Forms.API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace E_Forms.API.Models
+namespace E_Forms.API.Repositories
 {
     public interface IUserRepository
     {

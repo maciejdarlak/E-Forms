@@ -8,7 +8,7 @@ namespace E_Forms.API.Models
 {
     public class UserModel
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
     }

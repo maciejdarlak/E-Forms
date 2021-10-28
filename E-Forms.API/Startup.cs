@@ -52,7 +52,7 @@ namespace E_Forms.API
             {
                 configuration.RootPath = "E-Forms.Client/build";
             });
-      
+
             services.AddDbContext<UserDbContext>(o =>
             {
                 o.UseSqlServer("UserDbConnectionString");

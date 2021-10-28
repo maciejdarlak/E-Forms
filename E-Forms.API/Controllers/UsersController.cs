@@ -7,7 +7,7 @@ using E_Forms.API.Models;
 using System.Net.Http;
 using Microsoft.Extensions.Logging;
 using E_Forms.DataBase.Contexts;
-
+using E_Forms.API.Repositories;
 
 namespace E_Forms.API.Controllers
 {
@@ -27,6 +27,7 @@ namespace E_Forms.API.Controllers
         public IEnumerable<UserModel> GetAllUsers()
         {
             return repository.GetAll();
+            // return _userDbContext.Users.Select(x => new UserModel() { lastName = x.lastName, firstName = x.firstName }).ToList();
         }
 
         [HttpPost]

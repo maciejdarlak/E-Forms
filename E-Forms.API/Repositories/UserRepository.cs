@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using E_Forms.API.Models;
 
 
-namespace E_Forms.API.Models
+namespace E_Forms.API.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -14,9 +14,7 @@ namespace E_Forms.API.Models
 
         public UserRepository()
         {
-            Add(new UserModel { firstName = "Maciek", lastName = "Darłak" });
-            Add(new UserModel { firstName = "Ala", lastName = "Darłak" });
-            Add(new UserModel { firstName = "Pati", lastName = "Darłak" });
+            // here you can enter records into DB
         }
 
         public IEnumerable<UserModel> GetAll()
@@ -37,7 +35,7 @@ namespace E_Forms.API.Models
                 throw new ArgumentNullException("item");
             }
 
-            item.Id = _nextId++;
+            item.ID = _nextId++;
             users.Add(item);
             return item;
         }
